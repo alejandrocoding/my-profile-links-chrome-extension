@@ -1,0 +1,73 @@
+<mat-toolbar color="primary">
+    <h1 fxFlex class="title">My Profile Links</h1>
+</mat-toolbar>
+
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+
+<div class="wrapper" [ngClass]="{'hidden': loading}">
+    <form [formGroup]="form" class="form-links">
+        <div class="inputs-wrapper" fxLayout="column">
+            <div fxLayout="row" fxLayoutGap="10px" *ngIf="isLinkedInShown">
+                <mat-form-field fxFlex="100" appearance="outline">
+                    <mat-label>LinkedIn</mat-label>
+                    <input matInput formControlName="linkedIn">
+                </mat-form-field>
+                <div fxFlex fxFlexAlign="center">
+                    <button class="btn-copy" mat-mini-fab color="primary" (click)="copyToClipboard('linkedIn')">
+                        <mat-icon>file_copy</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px" *ngIf="isStackOverFlowShown">
+                <mat-form-field fxFlex="100" appearance="outline">
+                    <mat-label>StackOverFlow</mat-label>
+                    <input matInput formControlName="stackOverFlow">
+                </mat-form-field>
+                <div fxFlex fxFlexAlign="center">
+                    <button class="btn-copy" mat-mini-fab color="primary" (click)="copyToClipboard('stackOverFlow')">
+                        <mat-icon>file_copy</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px" *ngIf="isGitHubShown">
+                <mat-form-field fxFlex="100" appearance="outline">
+                    <mat-label>GitHub</mat-label>
+                    <input matInput formControlName="gitHub">
+                </mat-form-field>
+                <div fxFlex fxFlexAlign="center">
+                    <button class="btn-copy" mat-mini-fab color="primary" (click)="copyToClipboard('gitHub')">
+                        <mat-icon>file_copy</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px" *ngIf="isWebShown">
+                <mat-form-field fxFlex="100" appearance="outline">
+                    <mat-label>Web</mat-label>
+                    <input matInput formControlName="web">
+                </mat-form-field>
+                <div fxFlex fxFlexAlign="center">
+                    <button class="btn-copy" mat-mini-fab color="primary" (click)="copyToClipboard('web')">
+                        <mat-icon>file_copy</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div fxLayout="row" fxLayoutAlign="space-between">
+            <div fxLayout="column">
+                <mat-slide-toggle formControlName="isLinkedIn">LinkedIn</mat-slide-toggle>
+                <mat-slide-toggle formControlName="isGitHub">GitHub</mat-slide-toggle>
+            </div>
+            <div fxLayout="column">
+                <mat-slide-toggle formControlName="isStackOverFlow">StackOverFlow</mat-slide-toggle>
+                <mat-slide-toggle formControlName="isWeb">Web</mat-slide-toggle>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="btn-actions" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
+            <button mat-stroked-button color="accent" (click)="delete()">DELETE</button>
+            <button class="btn-save" mat-raised-button (click)="save()" color="primary">SAVE</button>
+        </div>
+    </form>
+</div>

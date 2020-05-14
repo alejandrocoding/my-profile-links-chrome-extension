@@ -1,0 +1,35 @@
+.title {
+  text-align: center;
+}
+.wrapper {
+  margin: 25px;
+  min-width: 420px;
+
+  .inputs-wrapper {
+    min-height: 310px;
+  }
+
+  .form-links {
+    ::ng-deep .mat-form-field-infix {
+      width: 300px;
+    }
+    .btn-copy {
+      top: -10px;
+    }
+  }
+
+  mat-divider {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  .btn-actions {
+    .btn-save {
+      padding: 0 25px;
+    }
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
