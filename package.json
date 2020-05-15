@@ -1,6 +1,6 @@
 {
-  "name": "chrome-extension-test",
-  "version": "0.0.0",
+  "name": "my-profile-links",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng build",
