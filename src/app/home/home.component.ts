@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   async ngOnInit() {
     this.initForm();
     this.subscribeToToggles();
+    this.form.valueChanges.pipe(takeUntil(this.destroy$)).subscribe(() => this.save());
     await this.preLoad();
     await AsyncHelper.delay(250);
     this.loading = false;
@@ -93,10 +94,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  async save() {
+  private async save() {
     const profileAsString = JSON.stringify(this.form.value);
     await StorageHelper.setStorageValueAsPromise(profileAsString);
-    this.snackBar.open('Saved successfully!', null, { duration: 2000 });
   }
 
   async delete() {
