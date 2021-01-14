@@ -1,6 +1,6 @@
 {
   "name": "My Profile Links",
-  "version": "1.0",
+  "version": "2.0.0",
   "description": "Keep all your profile links one click away. Supporting LinkedIn, StackOverFlow, GitHub & Web links.",
   "manifest_version": 2,
   "permissions": ["storage"],
